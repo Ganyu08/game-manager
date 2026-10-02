@@ -1,0 +1,106 @@
+POST http://localhost:8080/games
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "name": "鸣潮"
+}
+###
+
+PUT http://localhost:8080/games/-1287774207
+Content-Type: application/json
+
+{
+  "name": "测试修改"
+}
+###
+GET http://localhost:8080/games
+###
+
+DELETE http://localhost:8080/games/-1287774207
+###
+GET http://localhost:8080/play-records
+
+###
+
+POST http://localhost:8080/play-records
+Content-Type: application/json
+
+{
+  "gameId": 1,
+  "playTime": "2026-10-02 19:00:00",
+  "duration": 120,
+  "remark": "今天刷了两个小时"
+}
+
+###
+
+PUT http://localhost:8080/play-records/1
+Content-Type: application/json
+
+{
+  "duration": 180,
+  "remark": "今天狠狠玩了三个小时"
+}
+
+###
+
+DELETE http://localhost:8080/play-records/1
+
+### 查询所有任务
+GET http://localhost:8080/tasks
+### 查询未完成任务
+GET http://localhost:8080/tasks/unfinished
+### 添加任务1
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "gameId": 1,
+  "title": "完成每日委托",
+  "deadline": "2026-10-03 23:59:59",
+  "reward": "原石",
+  "status": 0
+}
+
+### 添加任务2
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "gameId": 1,
+  "title": "限时活动",
+  "deadline": "2026-10-05 23:59:59",
+  "reward": "活动奖励",
+  "status": 0
+}
+
+### 添加任务3
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "gameId": 1,
+  "title": "周本挑战",
+  "deadline": "2026-10-02 23:59:59",
+  "reward": "材料",
+  "status": 0
+}
+
+### 查询已过期任务
+GET http://localhost:8080/tasks/expired
+
+###
+PUT http://localhost:8080/tasks/3
+Content-Type: application/json
+
+{
+  "gameId": 1,
+  "title": "周本挑战",
+  "deadline": "2026-10-01T23:59:59",
+  "reward": "材料",
+  "status": 0
+}
+
+###
+GET http://localhost:8080/tasks/upcoming
